@@ -58,6 +58,12 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                             </textView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Total for Tip" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="BdG-o3-tAs">
+                                <rect key="frame" x="171" y="216" width="292" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <gestureRecognizers/>
@@ -79,11 +85,18 @@
                             <constraint firstItem="68H-xT-yS6" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" id="zay-UZ-fx0"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" title="Tip Calculator" id="8Cr-4g-1gS"/>
+                    <navigationItem key="navigationItem" title="Tip Calculator" id="8Cr-4g-1gS">
+                        <barButtonItem key="rightBarButtonItem" title="Setting" id="lbH-Hj-Cn5">
+                            <connections>
+                                <segue destination="QN8-2q-fxf" kind="show" id="lWN-cM-EXv"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                     <connections>
                         <outlet property="resultsTextView" destination="mEs-pM-8Xr" id="ve6-0D-V6r"/>
                         <outlet property="taxPctLabel" destination="68H-xT-yS6" id="WjP-8A-eTl"/>
                         <outlet property="taxPctSlider" destination="8I9-nD-aFQ" id="gOA-9j-OVv"/>
+                        <outlet property="tipLabel" destination="BdG-o3-tAs" id="mFw-Cu-E8i"/>
                         <outlet property="totalTextField" destination="NfP-cL-oCG" id="mUP-mb-sI9"/>
                     </connections>
                 </viewController>
@@ -113,6 +126,43 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="1Jg-Wa-OMx" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="305" y="1089"/>
+        </scene>
+        <!--View Controller-->
+        <scene sceneID="n6Q-eL-9HX">
+            <objects>
+                <viewController id="QN8-2q-fxf" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="naK-Nc-Ewq"/>
+                        <viewControllerLayoutGuide type="bottom" id="CVp-Ke-N6d"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="jE9-KF-k34">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Default Tip" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="b5G-na-HnF" customClass="tipLabel">
+                                <rect key="frame" x="32" y="96" width="84" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <segmentedControl opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="CKB-uO-XrO" userLabel="Tip Control">
+                                <rect key="frame" x="31" y="128" width="306" height="29"/>
+                                <segments>
+                                    <segment title="15%"/>
+                                    <segment title="18%"/>
+                                    <segment title="22%"/>
+                                </segments>
+                                <connections>
+                                    <action selector="onTipChanged:" destination="Gar-6y-02o" eventType="valueChanged" id="ZL4-Rk-Oy9"/>
+                                </connections>
+                            </segmentedControl>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Gar-6y-02o" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1117" y="1169"/>
         </scene>
     </scenes>
 </document>

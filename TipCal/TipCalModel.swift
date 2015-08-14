@@ -27,7 +27,7 @@ class TipCalculatorModel {
     }
     
     func returnPossibleTips() -> [Int: Double] {
-        let possibleTipsInferred = [0.15, 0.18, 0.22]
+        //let possibleTipsInferred = [0.15, 0.18, 0.22]
         let possibleTipsExplicit: [Double] = [0.15, 0.18, 0.22]
         
         var retval = [Int: Double]()
